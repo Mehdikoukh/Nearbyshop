@@ -13,8 +13,15 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "vue": "^2.5.2",
-    "vue-router": "^3.0.1"
+    "axios": "^0.17.1",
+    "v": "^0.3.0",
+    "vue": "^2.5.13",
+    "vue-route": "^1.5.1",
+    "vue-router": "^3.0.1",
+    "vuetify": "^0.17.6",
+    "vuex": "^3.0.1",
+    "vuex-persistedstate": "^2.4.2",
+    "vuex-router-sync": "^5.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

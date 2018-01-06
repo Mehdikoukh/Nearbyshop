@@ -1,9 +1,10 @@
-var express = require('express')
-var bodyParser = require('body-parser')
-var cors = require('cors')
-var morgan = require('morgan')
 
-var app = express();
+const express = require('express')
+const bodyParser = require('body-parser')
+const cors = require('cors')
+const morgan = require('morgan')
+
+const app = express()
 app.use(morgan('combined'))
 app.use(bodyParser.json())
 app.use(cors())
@@ -14,5 +15,5 @@ app.post('/register', (req, res) => {
         })
     })
 
-
-app.listen(process.env.PORT || 8081)
+    app.listen(8081)
+    console.log(`Server started on port 8081`)
