@@ -9,7 +9,9 @@ there are two directories (client and server) who need npm for installing
 ### Installing
 
 git clone https://github.com/Mehdikoukh/Nearbyshop.git
+
 cd Nearbyshop
+
 npm install for client and server directories
 
 ## Running the tests
@@ -30,6 +32,6 @@ and go to  http://localhost:(port in the client console)
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-##Database
+## Database
 database's name is nearbyshopdb
 collection's name is users
