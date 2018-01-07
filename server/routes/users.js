@@ -2,10 +2,10 @@ var express   = require('express'),
 	router    = express.Router(),
 	bcrypt    = require('bcryptjs'),
 	passport  = require('passport'),
-	crypto    = require('crypto');
+	crypto    = require('crypto')
 
 
-let User = require('../models/user');
+let User = require('../models/schemauser');
 //------------------
 //Register
 //------------------
@@ -54,6 +54,41 @@ router.post('/register', function(req, res){
 // Login
 //----------
 router.post('/login', passport.authenticate('local'), function(req, res){
-  res.status(200).json({user: req.user._id});
+  res.status('ok').json({user: req.user._id});
 });
+router.post('/like', function(req, res){
+  User.findOneAndUpdate({_id: req.body.userId}, {$push: {preferredShops: req.body.shopId}}, function(err, user){
+    if(err){
+      console.log(err);
+    }
+    res.send('ok')
+  })
+})
+
+router.post('/dislike', function(req, res){
+  User.findOneAndUpdate({_id: req.body.userId}, {$push: {dislikedShops: {shop: req.body.shopId, createdAt: Date.now()}}}, function(err, user){
+    if(err){
+      console.log(err);
+    }
+    res.send('ok')
+  })
+})
+
+router.post('/remove-liked', function(req, res){
+  console.log(req.body);
+  User.update({_id: req.body.userId}, { $pullAll: {preferredShops: [req.body.shopId]}}, function(err, user){
+    if (err) {
+      console.log(err);
+    }
+    res.send('OK')
+  })
+})
+
+// logout
+router.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/users/login');
+});
+
 module.exports = router;
+

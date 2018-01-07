@@ -8,7 +8,7 @@ var express          = require('express'),
 	passport         = require('passport'),
 	config           = require('./config/database'),
 	LocalStrategy    = require('passport-local').Strategy
-	User             = require('./models/dbuser'),
+	User             = require('./models/schemauser'),
 	config           = require('./config/database'),
 	bcrypt           = require('bcryptjs');
 	
@@ -20,7 +20,6 @@ var app = express()
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use(morgan('combined'))
 
 app.use(bodyParser.json());
 app.use(cors())
@@ -87,9 +86,10 @@ app.get('*', function(req, res, next){
 //==========
 //ROUTES
 //==========
-
+let homepage = require('./routes/homepage');
 let users = require('./routes/users');
 app.use('/users', users);
+app.use('/homepage', homepage);
 
 
     app.listen(8081)

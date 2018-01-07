@@ -10,6 +10,4 @@ var UserSchema = mongoose.Schema({
 
 UserSchema.plugin(uniqueValidator)
 
-var passportLocalMongoose = require("passport-local-mongoose");
-
 var User = module.exports = mongoose.model('User', UserSchema);

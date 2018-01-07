@@ -18,6 +18,8 @@
     "express-messages": "^1.0.1",
     "express-session": "^1.15.6",
     "express-validator": "^4.3.0",
+    "geo-lib": "^0.3.1",
+    "mongoose": "^5.0.0-rc2",
     "mongoose-unique-validator": "^1.0.6",
     "morgan": "^1.9.0",
     "passport": "^0.4.0",

@@ -27,7 +27,7 @@ import AuthenticationService from '@/services/AuthenticationService'
       email: '',
       emailRules: [
         (v) => !!v || 'Empty',
-        (v) => /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'Wrong email'
+        (v) => /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'no email format'
       ],
       password: '',
       passRules: [
@@ -39,7 +39,7 @@ import AuthenticationService from '@/services/AuthenticationService'
     methods: {
       async register () {
         if (this.$refs.form.validate()) {
-          const response = await AuthentificationService.register({
+          const response = await AuthenticationService.register({
             email: this.email,
             password: this.password,
             newpassword: this.newassword
