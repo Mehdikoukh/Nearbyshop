@@ -1,4 +1,4 @@
-var express          = require('express'),
+var     express          = require('express'),
 	mongoose         = require('mongoose'),
 	path             = require('path'),
 	bodyParser       = require('body-parser'),
@@ -25,7 +25,7 @@ app.use(bodyParser.json());
 app.use(cors())
 
 app.use(session({
-  secret: 'may the force be with you',
+  secret: 'GOOD EXPERIENCE',
   resave: true,
   saveUninitialized: true
 }));
